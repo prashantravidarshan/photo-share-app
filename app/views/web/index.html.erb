@@ -1,0 +1,6 @@
+<% if @albums.present? %>
+  <% @albums.each do |album| %>
+
+  <% end %>
+  <%= will_paginate @albums %>
+<% end %>

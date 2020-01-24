@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @album.user_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @album.name %>
+</p>
+
+<% if @photos.present? %>
+  <% @photos.each do |photo| %>
+    <%= image_tag(photo.image.url, height: 200, width: 200) if photo.image %>
+  <% end %>
+<% end %>
+
+<%= link_to 'New Photo', new_album_photo_path(@album.id) %>
+<%= link_to 'Edit', edit_album_path(@album) if current_user === @album.user %> |
+<%= link_to 'Back', albums_path %>
